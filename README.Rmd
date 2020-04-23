@@ -12,7 +12,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, results = FALSE, eval = 
 
 ```
 
-# bbccIR 0.0.9000 <img src="man/bbcc_logo.png" align="right" style="padding-left:10px;background-color:white;" />
+# bbccIR 0.0.9000
 
 [Edgar Zamora | Twitter: `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
 

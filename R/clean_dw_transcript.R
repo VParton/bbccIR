@@ -1,6 +1,6 @@
 #' Clean DW Transcript Table
 #'
-#' @description Used to clean transcript table by removing non-credit course, community courses, or any other not applicable.
+#'Used to clean transcript table by removing non-credit course, community courses, or any other not applicable.
 #' See .R file for specific details
 #'
 #' @param data name of object where the transcript data is stored from data warehouse

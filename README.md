@@ -1,5 +1,5 @@
-bbccIR 0.0.9000 &lt;img src=“man/bbcc\_logo.png” align=“right” style="background-color:white; /&gt;
-===================================================================================================
+bbccIR 0.0.9000
+===============
 
 [Edgar Zamora \| Twitter:
 `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
