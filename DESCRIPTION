@@ -1,13 +1,15 @@
 Package: bbccIR
-Title: What the Package Does (One Line, Title Case)
+Title: Instutional Research package
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Edgar",
+           family = "Zamora",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "edgarzamora2012@hotmail.com")
+Description: A package for the department of Institutional Research & Planning at Big Bend Community College that aids in shaping, visualizing, and reporting student data.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat (>= 2.1.0)
