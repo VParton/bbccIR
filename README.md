@@ -1,8 +1,13 @@
-bbccIR 0.0.9000
-===============
+bbccIR 0.0.9000 &lt;img src=“man/bbcc\_logo.png” align=“right” style="background-color:white; /&gt;
+===================================================================================================
 
 [Edgar Zamora \| Twitter:
 `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
+
+The `bbccIR` package is a collection of functions that will aid the
+department of Institutional Research and Planning in conducting analysis
+for the college. Functions range from themes in `ggplot` to shaping the
+data stored in our data warehouse.
 
 To install the `bbccIR` package run the following code:
 
@@ -72,13 +77,6 @@ BBCC Theme
 
 Big Bend Community Bend (BBCC)
 ------------------------------
-
-``` r
-ggplot(mtcars, aes(mpg, qsec, fill = as.factor(cyl))) +
-  geom_point() +
-  labs(title = "Miles per Gallon (MPG) v. 1/4 mile time") +
-  theme_bbcc()
-```
 
 Image Rights
 ============
