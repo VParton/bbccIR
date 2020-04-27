@@ -4,15 +4,27 @@
 \alias{course_success_rate}
 \title{Calculating course success rates}
 \usage{
-course_success_rate(data)
+course_success_rate(data, rate = "raw")
 }
 \arguments{
-\item{data}{}
+\item{rate}{Determine the output type. Default is the raw output but can be changed to 'percent' to get
+pass rate as a percentage}
+}
+\value{
+A dataframe of all the key metrics for course success rates
 }
 \description{
 Calculating course success rates
 }
 \examples{
+\\donotrun{
+transcript_tbl \%>\%
+   course_success_rates()
+
+transcript_tbl \%>\%
+   course_success_rates(rate = 'percent')
+
+}
 
 
 }
