@@ -1,15 +1,19 @@
 #' Clean DW Transcript Table
 #'
-#'Used to clean transcript table by removing non-credit course, community courses, or any other not applicable.
-#' See .R file for specific details
+#'Used to clean the transcript table by removing non-credit course, community courses, or any other not applicable.
 #'
 #' @param data name of object where the transcript data is stored from data warehouse
 #'
 #'
-#' @return
+#' @return A dataframe with a cleaned transcript table
 #' @export
 #'
 #' @examples
+#' \donotrun{
+#' transcript_tbl %>%
+#'   clean_dw_transcript()
+#'
+#' }
 #'
 #'
 clean_dw_transcript <- function(data) {

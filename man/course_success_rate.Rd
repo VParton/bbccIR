@@ -2,29 +2,30 @@
 % Please edit documentation in R/course_success_rate.R
 \name{course_success_rate}
 \alias{course_success_rate}
-\title{Calculating course success rates}
+\title{Calculating course success rates automatically.}
 \usage{
-course_success_rate(data, rate = "raw")
+course_success_rate(data, rate = "raw", graded = FALSE)
 }
 \arguments{
+\item{data}{Complete transcrpt table from data warehouse}
+
 \item{rate}{Determine the output type. Default is the raw output but can be changed to 'percent' to get
 pass rate as a percentage}
+
+\item{graded}{Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
+changed by making graded equal to TRUE}
 }
 \value{
 A dataframe of all the key metrics for course success rates
 }
 \description{
-Calculating course success rates
+Calculating course success rates automatically.
 }
 \examples{
-\\donotrun{
 transcript_tbl \%>\%
    course_success_rates()
 
 transcript_tbl \%>\%
    course_success_rates(rate = 'percent')
-
-}
-
 
 }

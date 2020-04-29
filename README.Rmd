@@ -65,6 +65,8 @@ transcript_tbl %>%
          year == "B90")
 ```
 
+There are additional parameters that can be given to the `course_success_rate` that will change the level of analysis of the output. By default, the courses success rates are reported in their raw format containing the number of withdrawls, failfures, fails and total students. To 
+
 
 # BBCC Theme
 ## Big Bend Community Bend (BBCC)

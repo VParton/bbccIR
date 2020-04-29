@@ -9,11 +9,18 @@ clean_dw_transcript(data)
 \arguments{
 \item{data}{name of object where the transcript data is stored from data warehouse}
 }
+\value{
+A dataframe with a cleaned transcript table
+}
 \description{
-Used to clean transcript table by removing non-credit course, community courses, or any other not applicable.
-See .R file for specific details
+Used to clean the transcript table by removing non-credit course, community courses, or any other not applicable.
 }
 \examples{
+\\donotrun{
+transcript_tbl \%>\%
+  clean_dw_transcript()
+
+}
 
 
 }
