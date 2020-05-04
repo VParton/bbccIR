@@ -9,11 +9,9 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
 #' transcript_tbl %>%
 #'   clean_dw_transcript()
 #'
-#' }
 #'
 #'
 clean_dw_transcript <- function(data) {

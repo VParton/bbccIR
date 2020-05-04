@@ -2,3 +2,4 @@
 
 export(clean_dw_transcript)
 export(course_success_rate)
+export(rs_fte_contribution)

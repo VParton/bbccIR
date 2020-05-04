@@ -2,7 +2,7 @@
 % Please edit documentation in R/course_success_rate.R
 \name{course_success_rate}
 \alias{course_success_rate}
-\title{Calculating course success rates automatically.}
+\title{Calculating course success rates automatically. Note that the level of analysis will determine which parameters can be used.}
 \usage{
 course_success_rate(data, rate = "raw", graded = FALSE)
 }
@@ -19,7 +19,7 @@ changed by making graded equal to TRUE}
 A dataframe of all the key metrics for course success rates
 }
 \description{
-Calculating course success rates automatically.
+Calculating course success rates automatically. Note that the level of analysis will determine which parameters can be used.
 }
 \examples{
 transcript_tbl \%>\%
