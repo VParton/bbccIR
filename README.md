@@ -72,18 +72,25 @@ transcript_tbl %>%
          year == "B90")
 ```
 
-BBCC Theme
-==========
+There are additional parameters that can be given to the
+`course_success_rate` that will change the level of analysis of the
+output. By default, the courses success rates are reported in their raw
+format containing the number of withdrawls, failfures, fails and total
+students.
 
-Big Bend Community Bend (BBCC)
-------------------------------
+Student Table
+=============
 
-Image Rights
-============
+Running Start Students
+----------------------
 
-All imaging included are owned by their respective colleges.
+### `rs_fte_contribution()`
 
-Credits
-=======
+To calculate how many or what percentage of BBCC’s FTEs come from
+running start students one can run the following function.
 
-Inspired by Bob Rudis’ (hrbrthemes), Ryo Nakagawara’ (tvthemes)…..
+``` r
+student_tbl %>% 
+  rs_fte_contribution() %>% 
+  filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
+```
