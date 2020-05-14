@@ -16,11 +16,9 @@ A dataframe with a cleaned transcript table
 Used to clean the transcript table by removing non-credit course, community courses, or any other not applicable.
 }
 \examples{
-\\donotrun{
 transcript_tbl \%>\%
   clean_dw_transcript()
 
-}
 
 
 }

@@ -2,6 +2,14 @@
 output: html_document
 ---
 
+
+# `bbccIR 0.1.1.9000`
+
+* New features
+  * `race_ethnic_trans()`
+
+
+
 # `bbccIR 0.1.0.9000`
 
 * New function:

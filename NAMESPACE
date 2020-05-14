@@ -2,4 +2,5 @@
 
 export(clean_dw_transcript)
 export(course_success_rate)
+export(race_ethnic_trans)
 export(rs_fte_contribution)

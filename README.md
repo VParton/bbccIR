@@ -94,3 +94,11 @@ student_tbl %>%
   rs_fte_contribution() %>% 
   filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
 ```
+
+Creating Race/Ethnic groups
+---------------------------
+
+``` r
+student_tbl %>% 
+  race_ethnic_trans()
+```
