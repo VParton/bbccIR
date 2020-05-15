@@ -99,7 +99,7 @@ student_tbl %>%
 Creating Race/Ethnic groups
 ---------------------------
 
-### `race_ethnic_trnas()`
+### `race_ethnic_trans()`
 
 Allows the recoding of the the *race\_ethnic\_code* variable in to the
 ethnic/racial groups that are commonly used when reporting our data.
