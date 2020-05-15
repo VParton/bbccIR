@@ -1,9 +1,8 @@
-bbccIR 0.1.1.9000
-=================
+bbccIR 0.1.1.9000 <img src="man/bbccIR_logo.png" align="right" style="width:200px;height:200x;">
+================================================================================================
 
 [Edgar Zamora \| Twitter:
 `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
-<img src="bbccIR_logo.png" align="right" style="width:200px;height:200x;">
 
 The `bbccIR` package is a collection of functions that will aid the
 department of Institutional Research and Planning in conducting analysis
