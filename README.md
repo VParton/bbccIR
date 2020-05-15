@@ -1,8 +1,9 @@
-bbccIR 0.0.9000
-===============
+bbccIR 0.1.1.9000
+=================
 
 [Edgar Zamora \| Twitter:
 `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
+<img src="bbccIR_logo.png" align="right" style="width:200px;height:200x;">
 
 The `bbccIR` package is a collection of functions that will aid the
 department of Institutional Research and Planning in conducting analysis
@@ -97,6 +98,15 @@ student_tbl %>%
 
 Creating Race/Ethnic groups
 ---------------------------
+
+### `race_ethnic_trnas()`
+
+Allows the recoding of the the *race\_ethnic\_code* variable in to the
+ethnic/racial groups that are commonly used when reporting our data.
+Running the `race_ethnic_trans()` will result in a new column named
+**race\_ethnic\_grps** that will contain the following values: A/W
+(Asian and White), HUG (Historically Underrepresented groups), and
+Unknown.
 
 ``` r
 student_tbl %>% 

@@ -14,7 +14,7 @@
 race_ethnic_trans <- function(data) {
   {{data}} %>%
     mutate(race_ethnic_grps = case_when(race_code %in% c("1", "6") ~ "A/W",
-                                        is.na(race_code) ~ "Unkown",
+                                        is.na(race_code) ~ "Unknown",
                                         TRUE ~ "HUG"))
 }
 
