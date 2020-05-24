@@ -18,7 +18,7 @@ devtools::install_github("Edgar-Zamora/bbccIR")
 Data Warehouse Tables
 =====================
 
-The following sections detail transformations, visualations, and/or
+The following sections detail transformations, visualizations, and/or
 calculations that can be made to the tables that are found within our
 data warehouse (e.g. transcripts, class, student, etc.). For the
 functions to work you have to retrieve and store the table as a R
@@ -30,7 +30,7 @@ Transcript Table
 ### `clean_dw_transcript`
 
 The `clean_dw_transcript` function will remove those courses that are
-not neccessary when looking at course level data. This function will be
+not necessary when looking at course level data. This function will be
 important when producing course success rates.
 
 There are two different ways to use the `clean_dw_transcript` function.
@@ -75,7 +75,7 @@ transcript_tbl %>%
 There are additional parameters that can be given to the
 `course_success_rate` that will change the level of analysis of the
 output. By default, the courses success rates are reported in their raw
-format containing the number of withdrawls, failfures, fails and total
+format containing the number of withdrawals, failures, fails and total
 students.
 
 Student Table
