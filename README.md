@@ -100,7 +100,7 @@ Creating Race/Ethnic groups
 
 ### `race_ethnic_trans()`
 
-Allows the recoding of the the *race\_ethnic\_code* variable in to the
+Allows the recoding of the the *race\_ethnic\_code* variable into the
 ethnic/racial groups that are commonly used when reporting our data.
 Running the `race_ethnic_trans()` will result in a new column named
 **race\_ethnic\_grps** that will contain the following values: A/W
@@ -111,3 +111,9 @@ Unknown.
 student_tbl %>% 
   race_ethnic_trans()
 ```
+
+License
+-------
+
+All rights are reserved to Big Bend Community College regarding the
+usage of their logo in the hex sticker.

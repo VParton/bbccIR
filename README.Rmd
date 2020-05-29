@@ -85,12 +85,18 @@ student_tbl %>%
 
 ### `race_ethnic_trans()`
 
-Allows the recoding of the the *race_ethnic_code* variable in to the ethnic/racial groups that are commonly used when reporting our data. Running the `race_ethnic_trans()` will result in a new column named **race_ethnic_grps** that will contain the following values: A/W (Asian and White), HUG (Historically Underrepresented groups), and Unknown.
+Allows the recoding of the the *race_ethnic_code* variable into the ethnic/racial groups that are commonly used when reporting our data. Running the `race_ethnic_trans()` will result in a new column named **race_ethnic_grps** that will contain the following values: A/W (Asian and White), HUG (Historically Underrepresented groups), and Unknown.
 
 ```{r race_ethnic_grps}
 student_tbl %>% 
   race_ethnic_trans()
 ```
+
+
+## License
+
+All rights are reserved to Big Bend Community College regarding the usage of their logo in the hex sticker. 
+
 
 
 
