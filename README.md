@@ -112,6 +112,29 @@ student_tbl %>%
   race_ethnic_trans()
 ```
 
+Dealing With SIDs
+-----------------
+
+From time to time there may be extra characters (spaces or hyphen)
+within an students sid that may hinder one from joining to other tables.
+To correct such issues, use the `clean_sids()` function. Doing so will
+remove any extra spaces of hyphens found within an sid. Currently those
+are the two most common characters found in an sid, but certainly more
+characters can be added.
+
+This are **NOT** real sids.
+
+``` r
+messy_sids <- tibble(
+  sid = c("123456789", "987654321", "273859371", "848- 34-7859", "274-05-9031  ", "562058276",
+          "495-09-9624", "902-48-2957"))
+
+messy_sids
+
+dashed_ids %>% 
+  clean_sids()
+```
+
 License
 -------
 
