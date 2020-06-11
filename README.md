@@ -5,9 +5,10 @@ bbccIR 0.1.1.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px
 `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
 
 The `bbccIR` package is a collection of functions that will aid the
-department of Institutional Research and Planning in conducting analysis
-for the college. Functions range from themes in `ggplot` to shaping the
-data stored in our data warehouse.
+department of [Institutional Research and
+Planning](https://www.bigbend.edu/information-center/institutional-research-planning/)
+in conducting analysis for the college. Functions range from themes in
+`ggplot` to shaping the data stored in our data warehouse.
 
 To install the `bbccIR` package run the following code:
 
@@ -122,14 +123,12 @@ remove any extra spaces of hyphens found within an sid. Currently those
 are the two most common characters found in an sid, but certainly more
 characters can be added.
 
-This are **NOT** real sids.
+These are **NOT** real sids.
 
 ``` r
 messy_sids <- tibble(
   sid = c("123456789", "987654321", "273859371", "848- 34-7859", "274-05-9031  ", "562058276",
           "495-09-9624", "902-48-2957"))
-
-messy_sids
 
 dashed_ids %>% 
   clean_sids()
