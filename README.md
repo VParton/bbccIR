@@ -82,10 +82,12 @@ students.
 Student Table
 =============
 
-Running Start Students
-----------------------
+Dual Enrollment
+---------------
 
-### `rs_fte_contribution()`
+#### Running Start Students
+
+##### `rs_fte_contribution()`
 
 To calculate how many or what percentage of BBCC’s FTEs come from
 running start students one can run the following function.
@@ -95,6 +97,27 @@ student_tbl %>%
   rs_fte_contribution() %>% 
   filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
 ```
+
+##### `rs_demographics()`
+
+Running the following function will provide a breakout of Running
+Students for each year. Additionally if desired, one can choose a
+specific high school to breakout by. In choosing the school you can pass
+the entire name or you can guess (i.e Ep instead of Ephrata High
+School).
+
+``` r
+student_tbl %>% 
+  rs_demographics()
+
+rs_demographics(student_tbl, high_school_name = 'Eph')
+
+student_tbl %>%
+  rs_demographic(high_school_name = "Ephrata") %>%
+  filter(year == "B78")
+```
+
+#### College In The High School
 
 Creating Race/Ethnic groups
 ---------------------------
