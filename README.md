@@ -1,4 +1,4 @@
-bbccIR 0.1.1.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
+bbccIR 0.1.2.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
 ===============================================================================================
 
 [Edgar Zamora \| Twitter:
@@ -157,8 +157,17 @@ dashed_ids %>%
   clean_sids()
 ```
 
+Required Packages
+=================
+
+``` r
+library(tidyverse)
+library(odbc)
+library(janitor)
+```
+
 License
--------
+=======
 
 All rights are reserved to Big Bend Community College regarding the
 usage of their logo in the hex sticker.
