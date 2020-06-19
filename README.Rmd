@@ -69,7 +69,23 @@ There are additional parameters that can be given to the `course_success_rate` t
 
 # Student Table
 
+The following set of functions are executed using the Student table found in the Data Warehouse tables provided by the WA State Board. In addition to having access to the tables you will also will have to have created a odbc connection on your machine while using the `odbc` package to make the connection in R. For a walkthrough on how to do that you can visit is this [page](https://db.rstudio.com/odbc/). After binding the database to an object in R. The following is an example of what your code should look like:
+
+```{r odbc_con}
+connection <- dbConnect(odbc::odbc(), "R Data")
+
+student_tbl <- tbl(con, "STUDENT") %>% #in parenthesis is the name of table as given by SBCTC
+  collect() %>% #binds the object to the student_tbl name
+  clean_names() %>% #turns names into snake_case
+  filter(year %in% c("B78", "B89")) %>% 
+  .....
+```
+
+This format of making connections to and storing data will apply to any other tables you would like to incoporate into R. You can also use the "Connections" tab that is part of the *Enviornment, History, and Connections* pane if you prefer that method. 
+
 ## Dual Enrollment
+
+This section details functions that can be used for either Running Start or College in the High School students. To be able to use any of the functions you will have had created a connection to the DW tables, specifically the Student table. 
 
 #### Running Start Students
 
@@ -101,7 +117,13 @@ student_tbl %>%
 
 #### College In The High School
 
+The `ciHS_demographics()` function is the same as the `rs_demographics()` function execept that the former focuses on College In The High School students.
 
+```{r ciHS_demogrpahics}
+student_tbl %>% 
+  ciHS_demographics(high_school_name = "Eph") %>%
+  filter(year >= "B23")
+```
 
 
 ## Creating Race/Ethnic groups
@@ -137,6 +159,7 @@ dashed_ids %>%
 library(tidyverse)
 library(odbc)
 library(janitor)
+library(dbplyr)
 ```
 
 

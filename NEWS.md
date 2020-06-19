@@ -5,6 +5,8 @@ output: html_document
 # `bbccIR 0.1.2.9000`
 * New function:
   * `rs_demographics()`
+  * `ciHSdemographics()`
+* Edits to README and documention
 
 
 # `bbccIR 0.1.1.9000`

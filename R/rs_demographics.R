@@ -1,5 +1,6 @@
 #' Determine the demographic breakout of Running Start Students by High School
 #'
+#' @param data The student table saved as an object
 #' @param high_school_name You can write out the entire name of the high school or match based on given name.
 #'
 #' @return Returns a tibble where ethnic groups are grouped according to typical categories (A/W, HUG) for each year and high school selected.
