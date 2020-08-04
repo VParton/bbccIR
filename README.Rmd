@@ -26,6 +26,25 @@ devtools::install_github("Edgar-Zamora/bbccIR")
 # Data Warehouse Tables
 The following sections detail transformations, visualizations, and/or calculations that can be made to the tables that are found within our data warehouse (e.g. transcripts, class, student, etc.). For the functions to work you have to retrieve and store the table as a R object.
 
+# Class Table
+
+### `state_fte`
+
+The `state_fte` function will calculate and disaggrate state FTE by student intent for a given year quarter. This function is accessing data from the local ods and will change daily when viewing current quarter state FTEs. As for previous years the FTEs will be static and will not change. To view a more complete picture of all state FTEs over years you can visit the Tableau [dashboard](https://tableau.sbctc.edu/t/BBCC/views/LiveClassCapacity/StateFTEDashboard?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link) found on the portal. 
+
+There are two different ways to use the `clean_dw_transcript` function. The first method is by passing the data object that contains the class table directly into the function as so:
+
+```{r state_fte1}
+state_fte(class, "C012")
+```
+
+
+```{r state_fte2}
+class %>% 
+  state_fte("C012")
+```
+
+
 # Transcript Table
 
 ### `clean_dw_transcript`

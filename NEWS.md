@@ -2,6 +2,11 @@
 output: html_document
 ---
 
+# `bbccIR 0.1.3.9000`
+* New function:
+  * `state_fte`
+*Edits to README
+
 # `bbccIR 0.1.2.9000`
 * New function:
   * `rs_demographics()`
