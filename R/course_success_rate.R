@@ -6,6 +6,7 @@
 #'             pass rate as a percentage
 #' @param graded Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
 #'             changed by making graded equal to TRUE
+#' @param academic_year Select the academic year in which you would like to see courses success rates for.
 #'
 #' @return A dataframe of all the key metrics for course success rates
 #' @export
@@ -68,3 +69,66 @@ course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
   return(results_data)
 
 }
+
+
+
+
+course_success_rates_publ <- function(academic_year) {
+
+  con <- dbConnect(odbc(), "R Data")
+
+  transcript <- tbl(con, "TRANSCRIPTS") %>%
+    collect() %>%
+    clean_names() %>%
+    filter(year == {{academic_year}}) %>%
+    course_success_rate()
+
+
+  year_lu <- tbl(con, "YRQ LU") %>%
+    collect() %>%
+    clean_names() %>%
+    select(yr, year_long)
+
+
+  dept_dvision_lu <- tbl(con, "Course and Division LU B90") %>%
+    collect() %>%
+    clean_names() %>%
+    select(-year)
+
+
+  course_success_pub <- transcript %>%
+    select(-item) %>%
+    group_by(year, dept_div, course_num, course_title) %>%
+    summarise(
+      withdraws = sum(withdraw),
+      passed = sum(passed),
+      failed = sum(failed),
+      total_stu = sum(total_stu),
+      percent_pass = paste0(round(passed/total_stu * 100, 0), "%")) %>%
+    ungroup() %>%
+    left_join(year_lu, by = c("year" = "yr")) %>%
+    left_join(dept_dvision_lu, by = c("dept_div", "course_num")) %>%
+    distinct_all() %>%
+    select(year_long, division, department, dept_div, course_num, course_title,
+           withdraws, failed, passed, total_stu, percent_pass) %>%
+    rename(
+      `Academic Year` = year_long,
+      Division = division,
+      Department = department,
+      Dept = dept_div,
+      `Course Number` = course_num,
+      Title = course_title,
+      Withdraws = withdraws,
+      `Unsucessful Students` = failed,
+      `Successful Students` = passed,
+      `Total Enrolled` = total_stu,
+      `Percent Successful` = percent_pass
+    ) %>%
+    group_by(Division) %>%
+    arrange(Division)
+
+  return(course_success_pub)
+
+}
+
+

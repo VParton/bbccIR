@@ -30,7 +30,7 @@ Class Table
 
 ### `state_fte`
 
-The `state_fte` function will calculate and disaggrate state FTE by
+The `state_fte` function will calculate and disintegrate state FTE by
 student intent for a given year quarter. This function is accessing data
 from the local ods and will change daily when viewing current quarter
 state FTEs. As for previous years the FTEs will be static and will not
@@ -106,6 +106,22 @@ output. By default, the courses success rates are reported in their raw
 format containing the number of withdrawals, failures, fails and total
 students.
 
+`course_success_rate_publ`
+--------------------------
+
+Building off the previous function, `course_success_rate`, the
+`course_success_rate_publ` function will output a date frame that is
+ready for publication either for the portal or to be distributed to
+various stakeholders. All that is required is for the user to designate
+which academic year they would like to look at. Additionally, the user
+can use the `map` functions from the `purrr` package to retrieve the
+courses success rates for all academic years, of which are available.
+Running the following line of code will output the data frame.
+
+``` r
+course_success_rates_publ("B90")
+```
+
 Student Table
 =============
 
@@ -129,8 +145,8 @@ student_tbl <- tbl(con, "STUDENT") %>% #in parenthesis is the name of table as g
 ```
 
 This format of making connections to and storing data will apply to any
-other tables you would like to incoporate into R. You can also use the
-“Connections” tab that is part of the *Enviornment, History, and
+other tables you would like to incorporate into R. You can also use the
+“Connections” tab that is part of the *Environment, History, and
 Connections* pane if you prefer that method.
 
 Dual Enrollment
@@ -176,7 +192,7 @@ student_tbl %>%
 #### College In The High School
 
 The `ciHS_demographics()` function is the same as the
-`rs_demographics()` function execept that the former focuses on College
+`rs_demographics()` function except that the former focuses on College
 In The High School students.
 
 ``` r

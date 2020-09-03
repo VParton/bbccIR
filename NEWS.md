@@ -2,6 +2,12 @@
 output: html_document
 ---
 
+# `bbccIR 0.1.4.9000`
+* New function:
+  * `course_success_rates_publ`
+*Edits to README, DESCRIPTION, and documention
+
+
 # `bbccIR 0.1.3.9000`
 * New function:
   * `state_fte`

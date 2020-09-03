@@ -1,6 +1,6 @@
 Package: bbccIR
 Title: Instutional Research package
-Version: 0.1.1.9000
+Version: 0.1.4.9000
 Authors@R: 
     person(given = "Edgar",
            family = "Zamora",
@@ -12,6 +12,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports:
-    tidyverse
+    tidyverse (>= 1.3.0),
+    odbc (>= 1.2.2),
+    DBI (>= 1.1.0),
+    janitor (>= 1.2.1),
+    dbplyr (>= 1.4.2)
 Suggests: 
     testthat (>= 2.1.0)

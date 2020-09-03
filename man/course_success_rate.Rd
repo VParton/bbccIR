@@ -14,6 +14,8 @@ pass rate as a percentage}
 
 \item{graded}{Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
 changed by making graded equal to TRUE}
+
+\item{academic_year}{Select the academic year in which you would like to see courses success rates for.}
 }
 \value{
 A dataframe of all the key metrics for course success rates
