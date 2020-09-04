@@ -1,4 +1,4 @@
-bbccIR 0.1.2.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
+bbccIR 0.1.4.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
 ===============================================================================================
 
 [Edgar Zamora \| Twitter:

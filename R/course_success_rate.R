@@ -96,6 +96,7 @@ course_success_rates_publ <- function(academic_year) {
     select(-year)
 
 
+#' @export
   course_success_pub <- transcript %>%
     select(-item) %>%
     group_by(year, dept_div, course_num, course_title) %>%
