@@ -216,7 +216,7 @@ and Grant County which is retrieved from the [Census Fact Finder
 site](https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamscountywashington,US/PST045219).
 
 ``` r
-infogrpahic("B90", "117,716")
+infographic"B90", "117,716")
 ```
 
 Dealing With SIDs
