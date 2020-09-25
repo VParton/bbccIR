@@ -201,21 +201,22 @@ student_tbl %>%
   filter(year >= "B23")
 ```
 
-Creating Race/Ethnic groups
----------------------------
+Yearly Infographic
+------------------
 
-### `race_ethnic_trans()`
-
-Allows the recoding of the the *race\_ethnic\_code* variable into the
-ethnic/racial groups that are commonly used when reporting our data.
-Running the `race_ethnic_trans()` will result in a new column named
-**race\_ethnic\_grps** that will contain the following values: A/W
-(Asian and White), HUG (Historically Underrepresented groups), and
-Unknown.
+Every year Institutional Resesrach is tasked with updating the
+infographic found the onthe Institutional Research and Planning
+[webpage](https://www.bigbend.edu/information-center/institutional-research-planning/).
+Running the `infographic()` function will return a `gt` table that can
+be exported using the `gtsave()` from `gt` package to turn the table
+into a pdf which is than sent the head of communication. There are two
+arguments that are necessary to include. The first is the academic year
+in the form of “\[B-C\]…\]” and then the district population of Adams
+and Grant County which is retrieved from the [Census Fact Finder
+site](https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamscountywashington,US/PST045219).
 
 ``` r
-student_tbl %>% 
-  race_ethnic_trans()
+infogrpahic("B90", "117,716")
 ```
 
 Dealing With SIDs
@@ -247,6 +248,9 @@ library(tidyverse)
 library(odbc)
 library(janitor)
 library(dbplyr)
+library(glue)
+library(gt)
+library(webshot)
 ```
 
 License

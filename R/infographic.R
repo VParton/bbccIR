@@ -114,7 +114,7 @@ infogrpahic <- function(year, district_pop) {
     distinct(sid, econ_disad_ind) %>%
     count(econ_disad_ind) %>%
     mutate(percentage = paste0(round(n/sum(n) * 100, 0), "%")) %>%
-    pluck("percentage", 2)
+    pluck("percentage", 1)
 
   #------------------------------------------
 

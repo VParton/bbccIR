@@ -21,8 +21,6 @@ output: html_document
 
 
 # `bbccIR 0.1.1.9000`
-* New function:
-  * `race_ethnic_trans()`
 * Added intitial package hex sticker
 * Edits to README, DESCRIPTION, and documention
 
