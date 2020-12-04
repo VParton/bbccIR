@@ -35,9 +35,8 @@ student intent for a given year quarter. This function is accessing data
 from the local ods and will change daily when viewing current quarter
 state FTEs. As for previous years the FTEs will be static and will not
 change. To view a more complete picture of all state FTEs over years you
-can visit the Tableau
-[dashboard](https://tableau.sbctc.edu/t/BBCC/views/LiveClassCapacity/StateFTEDashboard?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link)
-found on the portal.
+can visit the Tableau dashboard found on the IR [protal
+page](https://port.bigbend.edu/employee/Institutional%20Research%20%20Planning/Forms/AllItems.aspx).
 
 There are two different ways to use the `clean_dw_transcript` function.
 The first method is by passing the data object that contains the class
@@ -69,7 +68,7 @@ transcript table directly into the function as so:
 clean_dw_transcript(transcript_tbl)
 ```
 
-The second method is using the pipe (%&gt;%) as so:
+The second method is using the pipe (%\>%) as so:
 
 ``` r
 transcript_tbl %>% 
@@ -91,7 +90,7 @@ course_success_rate(transcript_tbl) %>%
   filter(year > "B89")
 ```
 
-The second method is using the pipe (%&gt;%) as so:
+The second method is using the pipe (%\>%) as so:
 
 ``` r
 transcript_tbl %>% 
@@ -216,8 +215,11 @@ and Grant County which is retrieved from the [Census Fact Finder
 site](https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamscountywashington,US/PST045219).
 
 ``` r
-infographic"B90", "117,716")
+infographic("B90", "117,716")
 ```
+
+Other
+=====
 
 Dealing With SIDs
 -----------------
@@ -227,7 +229,8 @@ within an students sid that may hinder one from joining to other tables.
 To correct such issues, use the `clean_sids()` function. Doing so will
 remove any extra spaces of hyphens found within an sid. Currently those
 are the two most common characters found in an sid, but certainly more
-characters can be added.
+characters can be added. For the `clean_sid()` function to work proper,
+the field must be named *sid*.
 
 These are **NOT** real sids.
 
@@ -239,6 +242,25 @@ messy_sids <- tibble(
 dashed_ids %>% 
   clean_sids()
 ```
+
+Student Enrolled In This Quarter
+--------------------------------
+
+This function stems from a request we get asking to give a list of
+students who are registered in a given and determining whether they are
+enrolled in the subsquent quarter. More often than not it is between
+Fall and Winter quarter but the way in which this function is written it
+cann apply to any quarters. There are two arguments in this function,
+one being the current quarter and the other being the target quarter.
+Including them (yrq formate) will return a list of students who meet the
+criteria as seen below.
+
+``` r
+stu_not_registred_nxt_qtr("C012", "C013")
+```
+
+Note that you do not have to provide this function any data since the
+date source is being connected to form within the function.
 
 Required Packages
 =================

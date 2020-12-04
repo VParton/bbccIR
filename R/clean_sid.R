@@ -20,7 +20,5 @@
 clean_sids <- function(data) {
 
   {{data}} %>%
-    mutate(clean_sid = str_trim(sid),
-           clean_sid = str_remove_all(clean_sid, "-"),
-           clean_sid = str_remove_all(clean_sid, " "))
+    mutate(sid = str_remove_all(str_trim(sid), "[-|\\s]"))
 }

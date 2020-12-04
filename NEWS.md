@@ -2,10 +2,17 @@
 output: html_document
 ---
 
+# `bbccIR 0.1.5.9000`
+* New function:
+  * `stu_qtr_enrollment`
+* Edits to function:
+  * `clean_sids()` - fixed issue that created a new column instead of editing current field value
+* Edits to README, DESCRIPITON, and documention
+
 # `bbccIR 0.1.4.9000`
 * New function:
   * `course_success_rates_publ`
-*Edits to README, DESCRIPTION, and documention
+*Edits to README, DESCRIPTION, and documentation
 
 
 # `bbccIR 0.1.3.9000`
@@ -22,7 +29,7 @@ output: html_document
 
 # `bbccIR 0.1.1.9000`
 * Added intitial package hex sticker
-* Edits to README, DESCRIPTION, and documention
+* Edits to README, DESCRIPTION, and documentation
 
 
 # `bbccIR 0.1.0.9000`
@@ -31,5 +38,5 @@ output: html_document
 * New features
   * `course_success_rates()`
 * Fixed bugs
-* Edits to README, DESCRIPTION, and function documention
+* Edits to README, DESCRIPTION, and function documentation
 
