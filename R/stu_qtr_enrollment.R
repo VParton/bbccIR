@@ -1,21 +1,23 @@
 #' Student Quarter Enrollment
 #'
-#' Running this function will allow one to see if a student is registered in designated quarter given the current quarter.
+#' Running this function will allow one to find the last quarter in which a student is registered in. 
 #'
-#' @param current_qtr This is the quarter of which you want to start comparing.
-#' @param nxt_qtr This is the quarter at which you want to see if a student is enrolled in.
+#' @param current_qtr This is the last quarter in which a student attended.
+#' @param summer Providing a field will allow for the inclusion of a summer quarter.
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #'
-#' stu_not_registred_nxt_qtr("C012", "C013")
+#'
+#' stu_not_registered_nxt_qtr("C014")
+#' stu_not_registered_nxt_qtr("C014", "C121")
 #'
 #'
 #'
 
-stu_not_registred_nxt_qtr <- function(current_qtr, summer_qtr = NULL) {
+stu_not_registered_nxt_qtr <- function(current_qtr, summer_qtr = NULL) {
   
   # Making database connection
   con <- dbConnect(odbc::odbc(), "R Data")
