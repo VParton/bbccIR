@@ -88,9 +88,14 @@ course_success_rates_publ <- function(academic_year) {
     collect() %>%
     clean_names() %>%
     select(yr, year_long)
+  
+  # Each year has the potential for new courses. 
+  year <- {academic_year}
+  
+  tbl_name <- glue("Course and Division LU {year}")
 
 
-  dept_dvision_lu <- tbl(con, "Course and Division LU B90") %>%
+  dept_dvision_lu <- tbl(con, tbl_name) %>%
     collect() %>%
     clean_names() %>%
     select(-year)
