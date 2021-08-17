@@ -4,18 +4,12 @@
 #'
 #' @param data Any dataframe object containing a column named 'sid'
 #'
+#' @import dplyr
+#' @importFrom stringr str_remove_all
+#'
 #' @return A dataframe containing a new column, 'clean_sid', with cleaned sid numbers.
 #' @export
 #'
-#' @examples
-#'
-#' df %>%
-#'   clean_sids()
-#'
-#'
-#' df %>%
-#'   select(sid) %>%
-#'   clean_sids()
 #'
 clean_sids <- function(data) {
 

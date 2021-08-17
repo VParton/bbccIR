@@ -1,16 +1,14 @@
-#' state_fte
+#' Calculate State FTE
 #'
-#' @param data Will be the dbo class table saved as an R object
-#' @param yrq The desired year quarter.
+#' @description Calcualate the State FTE for a given YRQ.
+#'
+#' @param data The dbo_class table saved as an R object
+#' @param yrq The desired YRQ.
+#'
+#' @import dplyr
 #'
 #' @return returns a tibble.
 #' @export
-#'
-#' @examples
-#'
-#' class %>%
-#'    state_fte("C012)
-#'
 #'
 
 

@@ -1,4 +1,4 @@
-#' Calculating course success rates automatically. Note that the level of analysis will determine which parameters can be used.
+#' Calculate course success rates
 #'
 #'
 #' @param data Complete transcrpt table from data warehouse
@@ -6,17 +6,13 @@
 #'             pass rate as a percentage
 #' @param graded Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
 #'             changed by making graded equal to TRUE
-#' @param academic_year Select the academic year in which you would like to see courses success rates for.
+#'
+#' @import dplyr
+#' @importFrom tidyr pivot_wider
 #'
 #' @return A dataframe of all the key metrics for course success rates
 #' @export
 #'
-#' @examples
-#' transcript_tbl %>%
-#'    course_success_rates()
-#'
-#' transcript_tbl %>%
-#'    course_success_rates(rate = 'percent')
 #'
 course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 
@@ -73,6 +69,17 @@ course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 
 
 
+#' Publication ready course success rates
+#'
+#' @param academic_year Designate academic year using codes.
+#'
+#' @import dplyr
+#' @importFrom janitor clean_names
+#' @importFrom glue glue
+#'
+#' @return A tibble containing course success rates in a summarized fashion.
+#' @export
+#'
 course_success_rates_publ <- function(academic_year) {
 
   con <- dbConnect(odbc(), "R Data")
@@ -88,10 +95,12 @@ course_success_rates_publ <- function(academic_year) {
     collect() %>%
     clean_names() %>%
     select(yr, year_long)
-  
-  # Each year has the potential for new courses. 
+
+
+
+  # Each year has the potential for new courses.
   year <- {academic_year}
-  
+
   tbl_name <- glue("Course and Division LU {year}")
 
 
@@ -101,7 +110,7 @@ course_success_rates_publ <- function(academic_year) {
     select(-year)
 
 
-#' @export
+
   course_success_pub <- transcript %>%
     select(-item) %>%
     group_by(year, dept_div, course_num, course_title) %>%

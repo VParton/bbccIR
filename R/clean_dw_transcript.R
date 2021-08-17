@@ -4,14 +4,10 @@
 #'
 #' @param data name of object where the transcript data is stored from data warehouse
 #'
+#' @import dplyr
 #'
 #' @return A dataframe with a cleaned transcript table
 #' @export
-#'
-#' @examples
-#' transcript_tbl %>%
-#'   clean_dw_transcript()
-#'
 #'
 #'
 clean_dw_transcript <- function(data) {

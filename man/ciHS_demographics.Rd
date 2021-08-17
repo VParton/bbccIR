@@ -17,13 +17,3 @@ A tibble will be returned
 \description{
 Determine the demographic breakout of College In The High School students by High School
 }
-\examples{
-
-ciHS_demographics(student_tbl)
-
-
-student_tbl \%>\%
- ciHS_demographics(high_school_name = "Eph") \%>\%
- filter(year >= "B23")
-
-}

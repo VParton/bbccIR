@@ -2,7 +2,7 @@
 % Please edit documentation in R/course_success_rate.R
 \name{course_success_rate}
 \alias{course_success_rate}
-\title{Calculating course success rates automatically. Note that the level of analysis will determine which parameters can be used.}
+\title{Calculate course success rates}
 \usage{
 course_success_rate(data, rate = "raw", graded = FALSE)
 }
@@ -14,20 +14,10 @@ pass rate as a percentage}
 
 \item{graded}{Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
 changed by making graded equal to TRUE}
-
-\item{academic_year}{Select the academic year in which you would like to see courses success rates for.}
 }
 \value{
 A dataframe of all the key metrics for course success rates
 }
 \description{
-Calculating course success rates automatically. Note that the level of analysis will determine which parameters can be used.
-}
-\examples{
-transcript_tbl \%>\%
-   course_success_rates()
-
-transcript_tbl \%>\%
-   course_success_rates(rate = 'percent')
-
+Calculate course success rates
 }

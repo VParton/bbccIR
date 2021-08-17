@@ -1,31 +1,39 @@
-#' Providing numbers of information that is used for the infographic found on the Institutional Research and Planning webpage.
+#' Generate infographic information
+#'
+#' @description Providing numbers of information that is used for the infographic found on the Institutional Research and Planning webpage.
 #'
 #' @param year Choose which year to pull
-#' @param district_pop Insert the district population of Adams and Grant county that is obtained from the Census factfind webpage.
+#' @param district_pop Insert the district population of Adams and Grant county that is obtained from the Census factfind webpag
+#'
+#' @import gt
+#' @importFrom janitor clean_names
+#' @importFrom glue glue
+#' @importFrom stats median
+#' @import dplyr
+#' @importFrom tibble add_row
+#' @importFrom purrr pluck
+#' @importFrom odbc odbc
+#' @importFrom DBI dbConnect
+#'
 #'
 #' @return Returns a gt tbl that can be saved as pdf or png.
 #' @export
 #'
-#' @examples
 #'
-#' infogrpahic("B90", "117,716) %>%
-#'    gtsave("infograhpic_b90.pdf)
-#'
-#'
-infogrpahic <- function(year, district_pop) {
+infographic <- function(year, district_pop) {
 
   con <- dbConnect(odbc::odbc(), "R Data")
 
   year_title <- tbl(con, "YRQ LU") %>%
-    collect() %>%
-    clean_names() %>%
+    dplyr::collect() %>%
+    janitor::clean_names() %>%
     filter(yr == {{year}}) %>%
     distinct(year_long) %>%
     pull(year_long)
 
   infogrpahic <- tbl(con, "STUDENT") %>%
-    collect() %>%
-    clean_names() %>%
+    dplyr::collect() %>%
+    janitor::clean_names() %>%
     filter(year == {{year}}) %>%
     select(sid, intent, race_ethnic_code, sex, age, ftes_total, yrq, dual_enroll, credits_total, econ_disad_ind) %>%
     distinct_all()
@@ -62,8 +70,8 @@ infogrpahic <- function(year, district_pop) {
   #------------------------------------------
 
   intent_j_l <- tbl(con, "TRANSCRIPTS") %>%
-    collect() %>%
-    clean_names() %>%
+    dplyr::collect() %>%
+    janitor::clean_names() %>%
     filter(dept_div %in% c("OPD", "HSC", "DVS") & year == {{year}}) %>%
     inner_join(infogrpahic, by = c("yrq", "sid")) %>%
     filter(intent %in% c("D", "L")) %>%
@@ -77,7 +85,7 @@ infogrpahic <- function(year, district_pop) {
                              intent == "J" ~ "Industry Training",
                              TRUE ~ "Academic")) %>%
     count(value) %>%
-    add_row(value = "Developmental", n = 612) %>%
+    tibble::add_row(value = "Developmental", n = 612) %>%
     mutate(percentage = paste0(round(n/sum(n) * 100, 0), "%")) %>%
     select(-n)
 
@@ -114,7 +122,7 @@ infogrpahic <- function(year, district_pop) {
     distinct(sid, econ_disad_ind) %>%
     count(econ_disad_ind) %>%
     mutate(percentage = paste0(round(n/sum(n) * 100, 0), "%")) %>%
-    pluck("percentage", 1)
+    purrr::pluck("percentage", 1)
 
   #------------------------------------------
 
@@ -124,6 +132,8 @@ infogrpahic <- function(year, district_pop) {
     add_row(value = "", percentage = as.character(fte)) %>%
     add_row(value = "", percentage = as.character(round(median(age$age, na.rm = T), 0))) %>%
     add_row(value = "", percentage = need_based_aid) %>%
+
+    # Building tab with gt package
     gt() %>%
     tab_header(
       title = glue('{year_title} Infographic Information')
@@ -154,11 +164,11 @@ infogrpahic <- function(year, district_pop) {
     ) %>%
     tab_row_group(
       group = "Median Age",
-      row = 16
+      rows = 16
     ) %>%
     tab_row_group(
       group = "Need-based aid",
-      row = 17
+      rows = 17
     ) %>%
     cols_label(
       value = "",

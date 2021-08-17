@@ -2,7 +2,7 @@
 % Please edit documentation in R/rs_fte_contribution.R
 \name{rs_fte_contribution}
 \alias{rs_fte_contribution}
-\title{Calculate the amount of ftes that running start students contribute to the colleges overall fte count for each quarter.}
+\title{Calculate RS FTE contribution}
 \usage{
 rs_fte_contribution(data, no_summer = FALSE)
 }
@@ -16,17 +16,4 @@ A tibble will be returned
 }
 \description{
 Calculate the amount of ftes that running start students contribute to the colleges overall fte count for each quarter.
-}
-\examples{
-
-student \%>\%
-  rs_fte_contribution()
-
-student \%>\%
-  rs_fte_contribution() \%>\%
-  filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
-
-rs_fte_contribution(student)
-
-
 }

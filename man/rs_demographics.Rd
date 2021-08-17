@@ -2,28 +2,20 @@
 % Please edit documentation in R/rs_demographics.R
 \name{rs_demographics}
 \alias{rs_demographics}
-\title{Determine the demographic breakout of Running Start Students by High School}
+\title{Determine the demographic breakout of RS by High School}
 \usage{
-rs_demographics(data, high_school_name = "")
+rs_demographics(data, demographic = NULL, high_school_name = "")
 }
 \arguments{
 \item{data}{The student table saved as an object}
 
+\item{demographic}{Choose which demographic (sex or race/ethnicity) to breakout by.}
+
 \item{high_school_name}{You can write out the entire name of the high school or match based on given name.}
 }
 \value{
-Returns a tibble where ethnic groups are grouped according to typical categories (A/W, HUG) for each year and high school selected.
+Returns a tibble where each high school in a given year is broken out by the demographic choosen.
 }
 \description{
 Determine the demographic breakout of Running Start Students by High School
-}
-\examples{
-
-
- rs_demographics(high_school_name = 'Eph')
-
- student_tbl \%>\%
-    rs_demographic() \%>\%
-    filter(year == "B78")
-
 }

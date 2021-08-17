@@ -7,16 +7,23 @@ Authors@R:
            role = c("aut", "cre"),
            email = "edgarzamora2012@hotmail.com")
 Description: A package for the department of Institutional Research & Planning at Big Bend Community College that aids in shaping, visualizing, and reporting student data.
-License: MIT + file LICENSE
 Encoding: UTF-8
+License: MIT + file LICENSE
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Imports:
-    tidyverse (>= 1.3.0),
-    glue (>= 1.4.0),
-    odbc (>= 1.2.2),
-    DBI (>= 1.1.0),
-    janitor (>= 1.2.1),
-    dbplyr (>= 1.4.2)
+    gt,
+    odbc,
+    DBI,
+    dbplyr,
+    dplyr,
+    janitor,
+    stringi,
+    purrr,
+    stringr,
+    stats,
+    glue,
+    tibble,
+    tidyr
 Suggests: 
     testthat (>= 2.1.0)

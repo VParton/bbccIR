@@ -1,14 +1,12 @@
-bbccIR 0.1.4.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
-===============================================================================================
 
-[Edgar Zamora \| Twitter:
-`@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_)
+# `{bbccIR}` 0.1.4.9000
+
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 The `bbccIR` package is a collection of functions that will aid the
 department of [Institutional Research and
 Planning](https://www.bigbend.edu/information-center/institutional-research-planning/)
-in conducting analysis for the college. Functions range from themes in
-`ggplot` to shaping the data stored in our data warehouse.
+in conducting analysis for the college.
 
 To install the `bbccIR` package run the following code:
 
@@ -16,8 +14,7 @@ To install the `bbccIR` package run the following code:
 devtools::install_github("Edgar-Zamora/bbccIR")
 ```
 
-Data Warehouse Tables
-=====================
+# Data Warehouse Tables
 
 The following sections detail transformations, visualizations, and/or
 calculations that can be made to the tables that are found within our
@@ -25,8 +22,7 @@ data warehouse (e.g. transcripts, class, student, etc.). For the
 functions to work you have to retrieve and store the table as a R
 object.
 
-Class Table
-===========
+# Class Table
 
 ### `state_fte`
 
@@ -51,8 +47,7 @@ class %>%
   state_fte("C012")
 ```
 
-Transcript Table
-================
+# Transcript Table
 
 ### `clean_dw_transcript`
 
@@ -105,8 +100,7 @@ output. By default, the courses success rates are reported in their raw
 format containing the number of withdrawals, failures, fails and total
 students.
 
-`course_success_rate_publ`
---------------------------
+## `course_success_rate_publ`
 
 Building off the previous function, `course_success_rate`, the
 `course_success_rate_publ` function will output a date frame that is
@@ -121,8 +115,7 @@ Running the following line of code will output the data frame.
 course_success_rates_publ("B90")
 ```
 
-Student Table
-=============
+# Student Table
 
 The following set of functions are executed using the Student table
 found in the Data Warehouse tables provided by the WA State Board. In
@@ -148,8 +141,7 @@ other tables you would like to incorporate into R. You can also use the
 “Connections” tab that is part of the *Environment, History, and
 Connections* pane if you prefer that method.
 
-Dual Enrollment
----------------
+## Dual Enrollment
 
 This section details functions that can be used for either Running Start
 or College in the High School students. To be able to use any of the
@@ -200,8 +192,7 @@ student_tbl %>%
   filter(year >= "B23")
 ```
 
-Yearly Infographic
-------------------
+## Yearly Infographic
 
 Every year Institutional Resesrach is tasked with updating the
 infographic found the onthe Institutional Research and Planning
@@ -218,11 +209,9 @@ site](https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamsco
 infographic("B90", "117,716")
 ```
 
-Other
-=====
+# Other
 
-Dealing With SIDs
------------------
+## Dealing With SIDs
 
 From time to time there may be extra characters (spaces or hyphen)
 within an students sid that may hinder one from joining to other tables.
@@ -243,8 +232,7 @@ dashed_ids %>%
   clean_sids()
 ```
 
-Student Enrolled In This Quarter
---------------------------------
+## Student Enrolled In This Quarter
 
 This function stems from a request we get asking to give a list of
 students who are registered in a given and determining whether they are
@@ -261,22 +249,3 @@ stu_not_registred_nxt_qtr("C012", "C013")
 
 Note that you do not have to provide this function any data since the
 date source is being connected to form within the function.
-
-Required Packages
-=================
-
-``` r
-library(tidyverse)
-library(odbc)
-library(janitor)
-library(dbplyr)
-library(glue)
-library(gt)
-library(webshot)
-```
-
-License
-=======
-
-All rights are reserved to Big Bend Community College regarding the
-usage of their logo in the hex sticker.

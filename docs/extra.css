@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  background-color: #132048;
+  border-color: transparent;
+}
+
+
+
+
+/* Navbar Header  ---------------------------------*/
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #30763a;
+}
+
+
+
+
+.navbar-default .navbar-link {
+  color: #FFF;
+}
+
+.navbar-default .navbar-link:hover {
+  color: #30763a;
+}

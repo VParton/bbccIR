@@ -2,18 +2,18 @@
 % Please edit documentation in R/state_fte.R
 \name{state_fte}
 \alias{state_fte}
-\title{state_fte}
+\title{Calculate State FTE}
 \usage{
 state_fte(data, yrq)
 }
 \arguments{
-\item{data}{Will be the dbo class table saved as an R object}
+\item{data}{The dbo_class table saved as an R object}
 
-\item{yrq}{The desired year quarter.}
+\item{yrq}{The desired YRQ.}
 }
 \value{
 returns a tibble.
 }
 \description{
-state_fte
+Calcualate the State FTE for a given YRQ.
 }

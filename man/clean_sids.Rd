@@ -15,14 +15,3 @@ A dataframe containing a new column, 'clean_sid', with cleaned sid numbers.
 \description{
 Use this function to remove SIDs that may have extra spaces or hyphens in them.
 }
-\examples{
-
-df \%>\%
-  clean_sids()
-
-
-df \%>\%
-  select(sid) \%>\%
-  clean_sids()
-
-}

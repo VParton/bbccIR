@@ -4,16 +4,16 @@
 #' @param high_school_name You can write out the entire name of the high school or match based on given name.
 #'
 #' @return A tibble will be returned
+#'
+#' @importFrom odbc odbc
+#' @import dplyr
+#' @importFrom stringi stri_isempty
+#' @importFrom DBI dbConnect
+#' @importFrom stringr str_trim
+#' @importFrom stringr str_to_title
+#' @importFrom stringr str_detect
+#'
 #' @export
-#'
-#' @examples
-#'
-#' ciHS_demographics(student_tbl)
-#'
-#'
-#' student_tbl %>%
-#'  ciHS_demographics(high_school_name = "Eph") %>%
-#'  filter(year >= "B23")
 #'
 
 ciHS_demographics <- function(data, high_school_name = '') {

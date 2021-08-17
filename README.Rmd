@@ -1,22 +1,21 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
 library(tidyverse)
 library(bbccIR)
+library(lifecycle)
 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, results = FALSE, eval = FALSE)
 
 ```
 
-# bbccIR 0.1.4.9000 <img src="man/bbccIR_hex.png" align="right" style="width:200px;height:200x;">
+# `{bbccIR}` 0.1.4.9000
 
-[Edgar Zamora | Twitter: `@Edgar_Zamora_`](https://twitter.com/Edgar_Zamora_) 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-The `bbccIR` package is a collection of functions that will aid the department of [Institutional Research and Planning](https://www.bigbend.edu/information-center/institutional-research-planning/) in conducting analysis for the college. Functions range from themes in `ggplot` to shaping the data stored in our data warehouse. 
+The `bbccIR` package is a collection of functions that will aid the department of [Institutional Research and Planning](https://www.bigbend.edu/information-center/institutional-research-planning/) in conducting analysis for the college.
 
 To install the `bbccIR` package run the following code:
 ```{r installation}
@@ -191,25 +190,6 @@ stu_not_registred_nxt_qtr("C012", "C013")
 ```
 
 Note that you do not have to provide this function any data since the date source is being connected to form within the function.
-
-# Required Packages
-
-```{r req_packages}
-library(tidyverse)
-library(odbc)
-library(janitor)
-library(dbplyr)
-library(glue)
-library(gt)
-library(webshot)
-```
-
-
-# License
-
-All rights are reserved to Big Bend Community College regarding the usage of their logo in the hex sticker. 
-
-
 
 
 
