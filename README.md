@@ -5,7 +5,7 @@
 
 The `bbccIR` package is a collection of functions that will aid the
 department of [Institutional Research and
-Planning](https://www.bigbend.edu/information-center/institutional-research-planning/)
+Planning](https://www.bigbend.edu/about-us/institutional-research-and-planning/)
 in conducting analysis for the college.
 
 To install the `bbccIR` package run the following code:
@@ -45,29 +45,6 @@ state_fte(class, "C012")
 ``` r
 class %>% 
   state_fte("C012")
-```
-
-# Transcript Table
-
-### `clean_dw_transcript`
-
-The `clean_dw_transcript` function will remove those courses that are
-not necessary when looking at course level data. This function will be
-important when producing course success rates.
-
-There are two different ways to use the `clean_dw_transcript` function.
-The first method is by passing the data object that contains the
-transcript table directly into the function as so:
-
-``` r
-clean_dw_transcript(transcript_tbl)
-```
-
-The second method is using the pipe (%\>%) as so:
-
-``` r
-transcript_tbl %>% 
-  clean_dw_transcript()
 ```
 
 ### `course_success_rate`
@@ -161,25 +138,6 @@ student_tbl %>%
   filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
 ```
 
-##### `rs_demographics()`
-
-Running the following function will provide a breakout of Running
-Students for each year. Additionally if desired, one can choose a
-specific high school to breakout by. In choosing the school you can pass
-the entire name or you can guess (i.e Ep instead of Ephrata High
-School).
-
-``` r
-student_tbl %>% 
-  rs_demographics()
-
-rs_demographics(student_tbl, high_school_name = 'Eph')
-
-student_tbl %>%
-  rs_demographic(high_school_name = "Ephrata") %>%
-  filter(year == "B78")
-```
-
 #### College In The High School
 
 The `ciHS_demographics()` function is the same as the
@@ -210,27 +168,6 @@ infographic("B90", "117,716")
 ```
 
 # Other
-
-## Dealing With SIDs
-
-From time to time there may be extra characters (spaces or hyphen)
-within an students sid that may hinder one from joining to other tables.
-To correct such issues, use the `clean_sids()` function. Doing so will
-remove any extra spaces of hyphens found within an sid. Currently those
-are the two most common characters found in an sid, but certainly more
-characters can be added. For the `clean_sid()` function to work proper,
-the field must be named *sid*.
-
-These are **NOT** real sids.
-
-``` r
-messy_sids <- tibble(
-  sid = c("123456789", "987654321", "273859371", "848- 34-7859", "274-05-9031  ", "562058276",
-          "495-09-9624", "902-48-2957"))
-
-dashed_ids %>% 
-  clean_sids()
-```
 
 ## Student Enrolled In This Quarter
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Determine the demographic breakout of College In The High School students by High School — ciHS_demographics • bbccIR</title>
+<title>Determine the demographic breakout of CiHs by High School — ciHS_demographics • bbccIR</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Determine the demographic breakout of College In The High School students by High School — ciHS_demographics" />
-<meta property="og:description" content="Determine the demographic breakout of College In The High School students by High School" />
+<meta property="og:title" content="Determine the demographic breakout of CiHs by High School — ciHS_demographics" />
+<meta property="og:description" content="Determine the demographic breakout of CiHs by High School" />
 
 
 
@@ -108,13 +108,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Determine the demographic breakout of College In The High School students by High School</h1>
+    <h1>Determine the demographic breakout of CiHs by High School</h1>
     
     <div class="hidden name"><code>ciHS_demographics.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Determine the demographic breakout of College In The High School students by High School</p>
+    <p>Determine the demographic breakout of CiHs by High School</p>
     </div>
 
     <pre class="usage"><span class='fu'>ciHS_demographics</span><span class='op'>(</span><span class='va'>data</span>, high_school_name <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span></pre>
@@ -124,18 +124,55 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>The student table saved as an object</p></td>
+      <td><p>The DW STUDENT table saved as an R object.</p></td>
     </tr>
     <tr>
       <th>high_school_name</th>
-      <td><p>You can write out the entire name of the high school or match based on given name.</p></td>
+      <td><p>Provide the entire or partial High School name.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble will be returned</p>
+    <p>A tibble with number of students per high school broken out by race/ethnicity.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tibble.tidyverse.org/'>tibble</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://magrittr.tidyverse.org'>magrittr</a></span><span class='op'>)</span>
+
+<span class='co'># The data will look something like this.</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
+   sid <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span> , <span class='st'>"2"</span><span class='op'>)</span>,
+   year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B90"</span>, <span class='st'>"B90"</span><span class='op'>)</span>,
+   hi_schl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"178"</span>, <span class='st'>"179"</span><span class='op'>)</span>,
+   race_ethnic_code <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"6"</span><span class='op'>)</span>,
+   dual_enroll <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"2"</span>, <span class='st'>"1"</span><span class='op'>)</span>
+   <span class='op'>)</span>
+
+ <span class='va'>df</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 5</span><span>
+#&gt;   sid   year  hi_schl race_ethnic_code dual_enroll
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      
+#&gt; </span><span style='color: #555555;'>1</span><span> 1     B90   178     1                2          
+#&gt; </span><span style='color: #555555;'>2</span><span> 2     B90   179     6                1          </div><div class='input'>
+
+<span class='co'># Providing no high school will return all the values</span>
+ <span class='va'>df</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ciHS_demographics</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 4</span><span>
+#&gt;   year  race_ethnic_code high_school_name        n
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
+
+<span class='co'># Using either the full name or paritial name will suffice if spelled correctly.</span>
+ <span class='va'>df</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ciHS_demographics</span><span class='op'>(</span>high_school_name <span class='op'>=</span> <span class='st'>"Moses Lake"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 4</span><span>
+#&gt;   year  race_ethnic_code high_school_name        n
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
+
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

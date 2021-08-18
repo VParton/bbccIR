@@ -7,11 +7,25 @@
 clean_sids(data)
 }
 \arguments{
-\item{data}{Any dataframe object containing a column named 'sid'}
+\item{data}{Any dataframe or list object contains sids}
 }
 \value{
-A dataframe containing a new column, 'clean_sid', with cleaned sid numbers.
+Returns a dataframe or list with clean sids.
 }
 \description{
 Use this function to remove SIDs that may have extra spaces or hyphens in them.
+}
+\examples{
+library(magrittr)
+library(dplyr)
+
+messy_sid <- c("1234", "123-4", " 1234-5")
+
+clean_sids(messy_sid)
+
+
+tibble(messy_sid) \%>\%
+   mutate(sid = clean_sids(messy_sid))
+
+
 }

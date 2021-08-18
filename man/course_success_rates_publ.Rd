@@ -15,3 +15,13 @@ A tibble containing course success rates in a summarized fashion.
 \description{
 Publication ready course success rates
 }
+\examples{
+\dontrun{
+
+course_success_rates_publ("C01")
+
+course_success_rates_publ("B56")
+
+}
+
+}

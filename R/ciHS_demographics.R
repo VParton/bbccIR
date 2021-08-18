@@ -1,9 +1,9 @@
-#' Determine the demographic breakout of College In The High School students by High School
+#' Determine the demographic breakout of CiHs by High School
 #'
-#' @param data The student table saved as an object
-#' @param high_school_name You can write out the entire name of the high school or match based on given name.
+#' @param data The DW STUDENT table saved as an R object.
+#' @param high_school_name Provide the entire or partial High School name.
 #'
-#' @return A tibble will be returned
+#' @return A tibble with number of students per high school broken out by race/ethnicity.
 #'
 #' @importFrom odbc odbc
 #' @import dplyr
@@ -14,6 +14,32 @@
 #' @importFrom stringr str_detect
 #'
 #' @export
+#'
+#' @examples
+#' library(tibble)
+#' library(magrittr)
+#'
+#' # The data will look something like this.
+#' df <- tibble(
+#'    sid = c("1" , "2"),
+#'    year = c("B90", "B90"),
+#'    hi_schl = c("178", "179"),
+#'    race_ethnic_code = c("1", "6"),
+#'    dual_enroll = c("2", "1")
+#'    )
+#'
+#'  df
+#'
+#'
+#' # Providing no high school will return all the values
+#'  df %>%
+#'     ciHS_demographics()
+#'
+#'
+#' # Using either the full name or paritial name will suffice if spelled correctly.
+#'  df %>%
+#'     ciHS_demographics(high_school_name = "Moses Lake")
+#'
 #'
 
 ciHS_demographics <- function(data, high_school_name = '') {

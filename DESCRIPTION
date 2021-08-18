@@ -24,6 +24,7 @@ Imports:
     stats,
     glue,
     tibble,
-    tidyr
+    tidyr,
+    magrittr
 Suggests: 
     testthat (>= 2.1.0)

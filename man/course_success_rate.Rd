@@ -21,3 +21,17 @@ A dataframe of all the key metrics for course success rates
 \description{
 Calculate course success rates
 }
+\examples{
+\dontrun{
+
+transcript_tbl \%>\%
+  course_succces_rate(rate = 'percent')
+
+
+transcript_tbl \%>\%
+  course_success_rate(graded = TRUE)
+
+}
+
+
+}

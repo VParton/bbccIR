@@ -2,17 +2,30 @@
 #'
 #' Use this function to remove SIDs that may have extra spaces or hyphens in them.
 #'
-#' @param data Any dataframe object containing a column named 'sid'
-#'
+#' @param data Any dataframe or list object contains sids
 #' @import dplyr
+#' @importFrom magrittr "%>%"
 #' @importFrom stringr str_remove_all
+#' @importFrom tibble tibble
 #'
-#' @return A dataframe containing a new column, 'clean_sid', with cleaned sid numbers.
+#' @return Returns a dataframe or list with clean sids.
 #' @export
+#'
+#' @examples
+#' library(magrittr)
+#' library(dplyr)
+#'
+#' messy_sid <- c("1234", "123-4", " 1234-5")
+#'
+#' clean_sids(messy_sid)
+#'
+
+#'
+#' tibble(messy_sid) %>%
+#'    mutate(sid = clean_sids(messy_sid))
 #'
 #'
 clean_sids <- function(data) {
 
-  {{data}} %>%
-    mutate(sid = str_remove_all(str_trim(sid), "[-|\\s]"))
+  str_remove_all(str_trim(data), "[-|\\s]")
 }

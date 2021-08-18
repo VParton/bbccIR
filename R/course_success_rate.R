@@ -13,6 +13,18 @@
 #' @return A dataframe of all the key metrics for course success rates
 #' @export
 #'
+#' @examples
+#' \dontrun{
+#'
+#' transcript_tbl %>%
+#'   course_succces_rate(rate = 'percent')
+#'
+#'
+#' transcript_tbl %>%
+#'   course_success_rate(graded = TRUE)
+#'
+#' }
+#'
 #'
 course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 
@@ -79,6 +91,15 @@ course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 #'
 #' @return A tibble containing course success rates in a summarized fashion.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' course_success_rates_publ("C01")
+#'
+#' course_success_rates_publ("B56")
+#'
+#' }
 #'
 course_success_rates_publ <- function(academic_year) {
 

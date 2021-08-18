@@ -7,11 +7,37 @@
 clean_dw_transcript(data)
 }
 \arguments{
-\item{data}{name of object where the transcript data is stored from data warehouse}
+\item{data}{Name of R object that contains the TRANSCRIPT data.}
 }
 \value{
 A dataframe with a cleaned transcript table
 }
 \description{
-Used to clean the transcript table by removing non-credit course, community courses, or any other not applicable.
+Used to clean the transcript table by removing non-credit course, community courses, or any other not applicable courses.
+}
+\examples{
+
+library(tibble)
+library(magrittr)
+
+df <- tibble(
+        dept_div = c("NSO", "DVS", "CHEM&", "ENGL", "BDC"),
+        course_num = c("100", "098", "121", "099", "121"),
+        cr = c(NA, NA, 5, 5, 2),
+        item = c("XOXO", "1", "2", "3", "4"),
+        sect = c("A#P", "HY", "OL1", NA, "OL3"),
+        class_size = c(500, 20, 25, 25, 25)
+        )
+
+ df
+
+
+# Piping clean_dw_transcripts will return those courses that should
+# be excluded from course success.
+
+ df \%>\%
+   clean_dw_transcript()
+
+
+
 }

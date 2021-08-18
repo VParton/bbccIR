@@ -1,2 +1,30 @@
 home:
   title: Big Bend IR
+
+reference:
+  - title: Cleaning Data
+    desc: Cleaning up messy data
+    contents:
+      - matches("clean")
+  - title: Dual Enrollment
+    desc: Running Start & College in the High School
+    contents:
+      - matches("rs")
+      - ciHS_demographics
+  - title: Course Success Rates
+    contents:
+      - matches("course_success")
+  - title: Student Retention
+    desc: Quarterly and Annual
+    contents:
+      - matches("retention")
+  - title: College Info
+    desc: General information about the college
+    contents:
+      - infographic
+      - state_fte
+  - title: Other
+    contents:
+      - stu_not_registered_nxt_qtr
+
+
