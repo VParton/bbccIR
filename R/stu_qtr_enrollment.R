@@ -13,9 +13,15 @@
 #' @return A tibble displaying which students returned in the designated quarters.
 #' @export
 #'
+#' @examples
+#' \dontrun{
+#'
+#' stu_not_registered_nxt_qtr("B902", summer = TRUE)
+#'
+#' }
 #'
 
-stu_not_registered_nxt_qtr <- function(current_qtr, summer_qtr = NULL) {
+stu_not_registered_nxt_qtr <- function(current_qtr, summer_qtr = FALSE) {
 
   # Making database connection
   con <- dbConnect(odbc::odbc(), "R Data")
@@ -46,7 +52,7 @@ stu_not_registered_nxt_qtr <- function(current_qtr, summer_qtr = NULL) {
 
 
   # Inclusion of summer quarter
-  if(is.null(summer_qtr)){
+  if(summer_qtr == TRUE){
     output %>%
       filter(yrq_last_attended == {{current_qtr}})
   } else {

@@ -28,3 +28,19 @@ reference:
       - stu_not_registered_nxt_qtr
 
 
+navbar:
+  title: bbccIR
+  left:
+  - text: Home
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: Getting Started
+      href: articles/getting-started.html
+    - text: BBCC Retention
+      href: articles/bbcc-retention.html
+  - text: Updates
+    href: news/index.html
+

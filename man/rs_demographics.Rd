@@ -19,3 +19,13 @@ Returns a tibble where each high school in a given year is broken out by the dem
 \description{
 Determine the demographic breakout of Running Start Students by High School
 }
+\examples{
+\dontrun{
+
+ rs_demographics(student_tbl, demographic = 'sex', high_school_name = 'Moses Lake')
+
+ student_tbl \%>\%
+   rs_demographic(demographic = 'race_ethnic_code')
+
+}
+}

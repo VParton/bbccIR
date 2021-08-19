@@ -39,16 +39,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
+  <a href="index.html">Home</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
 <li>
-  <a href="news/index.html">Changelog</a>
+      <a href="articles/getting-started.html">Getting Started</a>
+    </li>
+    <li>
+      <a href="articles/bbcc-retention.html">BBCC Retention</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -93,34 +105,17 @@
 <code class="sourceCode R"><span class="va">class</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/state_fte.html">state_fte</a></span><span class="op">(</span><span class="st">"C012"</span><span class="op">)</span></code></pre></div>
 </div>
-</div>
-<div id="transcript-table" class="section level1">
-<h1 class="hasAnchor">
-<a href="#transcript-table" class="anchor"></a>Transcript Table</h1>
-<div id="clean_dw_transcript" class="section level3">
-<h3 class="hasAnchor">
-<a href="#clean_dw_transcript" class="anchor"></a><code>clean_dw_transcript</code>
-</h3>
-<p>The <code>clean_dw_transcript</code> function will remove those courses that are not necessary when looking at course level data. This function will be important when producing course success rates.</p>
-<p>There are two different ways to use the <code>clean_dw_transcript</code> function. The first method is by passing the data object that contains the transcript table directly into the function as so:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/clean_dw_transcript.html">clean_dw_transcript</a></span><span class="op">(</span><span class="va">transcript_tbl</span><span class="op">)</span></code></pre></div>
-<p>The second method is using the pipe (%&gt;%) as so:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">transcript_tbl</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/clean_dw_transcript.html">clean_dw_transcript</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-</div>
 <div id="course_success_rate" class="section level3">
 <h3 class="hasAnchor">
 <a href="#course_success_rate" class="anchor"></a><code>course_success_rate</code>
 </h3>
 <p>Using the <code>course_success_rate</code> will generate an output that calculates the pass rate for every course taught at BBCC. To do so you will need to have the entire transcript table saved as an object in R.</p>
 <p>There are two methods to use the <code>course_success_rate</code>, both equal in their output. The first method is by passing the data object that contains the transcript table directly into the function as so:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/course_success_rate.html">course_success_rate</a></span><span class="op">(</span><span class="va">transcript_tbl</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="st">"B89"</span><span class="op">)</span></code></pre></div>
 <p>The second method is using the pipe (%&gt;%) as so:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">transcript_tbl</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/course_success_rate.html">course_success_rate</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">total_stu</span> <span class="op">&gt;=</span> <span class="fl">5</span>, 
@@ -132,7 +127,7 @@
 <a href="#course_success_rate_publ" class="anchor"></a><code>course_success_rate_publ</code>
 </h2>
 <p>Building off the previous function, <code>course_success_rate</code>, the <code>course_success_rate_publ</code> function will output a date frame that is ready for publication either for the portal or to be distributed to various stakeholders. All that is required is for the user to designate which academic year they would like to look at. Additionally, the user can use the <code>map</code> functions from the <code>purrr</code> package to retrieve the courses success rates for all academic years, of which are available. Running the following line of code will output the data frame.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/course_success_rates_publ.html">course_success_rates_publ</a></span><span class="op">(</span><span class="st">"B90"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -140,7 +135,7 @@
 <h1 class="hasAnchor">
 <a href="#student-table" class="anchor"></a>Student Table</h1>
 <p>The following set of functions are executed using the Student table found in the Data Warehouse tables provided by the WA State Board. In addition to having access to the tables you will also will have to have created a odbc connection on your machine while using the <code>odbc</code> package to make the connection in R. For a walkthrough on how to do that you can visit is this <a href="https://db.rstudio.com/odbc/">page</a>. After binding the database to an object in R. The following is an example of what your code should look like:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">connection</span> <span class="op">&lt;-</span> <span class="fu">dbConnect</span><span class="op">(</span><span class="fu">odbc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/odbc/man/odbc.html">odbc</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"R Data"</span><span class="op">)</span>
 
 <span class="va">student_tbl</span> <span class="op">&lt;-</span> <span class="fu">tbl</span><span class="op">(</span><span class="va">con</span>, <span class="st">"STUDENT"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#in parenthesis is the name of table as given by SBCTC</span>
@@ -161,32 +156,17 @@
 <a href="#rs_fte_contribution" class="anchor"></a><code>rs_fte_contribution()</code>
 </h5>
 <p>To calculate how many or what percentage of BBCC’s FTEs come from running start students one can run the following function.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_tbl</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/rs_fte_contribution.html">rs_fte_contribution</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">str_detect</span><span class="op">(</span><span class="va">yrq</span>, <span class="st">"B[6-9][0-9][2-4]"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-</div>
-<div id="rs_demographics" class="section level5">
-<h5 class="hasAnchor">
-<a href="#rs_demographics" class="anchor"></a><code>rs_demographics()</code>
-</h5>
-<p>Running the following function will provide a breakout of Running Students for each year. Additionally if desired, one can choose a specific high school to breakout by. In choosing the school you can pass the entire name or you can guess (i.e Ep instead of Ephrata High School).</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">student_tbl</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/rs_demographics.html">rs_demographics</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu"><a href="reference/rs_demographics.html">rs_demographics</a></span><span class="op">(</span><span class="va">student_tbl</span>, high_school_name <span class="op">=</span> <span class="st">'Eph'</span><span class="op">)</span>
-
-<span class="va">student_tbl</span> <span class="op">%&gt;%</span>
-  <span class="fu">rs_demographic</span><span class="op">(</span>high_school_name <span class="op">=</span> <span class="st">"Ephrata"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="st">"B78"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="college-in-the-high-school" class="section level4">
 <h4 class="hasAnchor">
 <a href="#college-in-the-high-school" class="anchor"></a>College In The High School</h4>
 <p>The <code><a href="reference/ciHS_demographics.html">ciHS_demographics()</a></code> function is the same as the <code><a href="reference/rs_demographics.html">rs_demographics()</a></code> function except that the former focuses on College In The High School students.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_tbl</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/ciHS_demographics.html">ciHS_demographics</a></span><span class="op">(</span>high_school_name <span class="op">=</span> <span class="st">"Eph"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;=</span> <span class="st">"B23"</span><span class="op">)</span></code></pre></div>
@@ -196,7 +176,7 @@
 <h2 class="hasAnchor">
 <a href="#yearly-infographic" class="anchor"></a>Yearly Infographic</h2>
 <p>Every year Institutional Resesrach is tasked with updating the infographic found the onthe Institutional Research and Planning <a href="https://www.bigbend.edu/information-center/institutional-research-planning/">webpage</a>. Running the <code><a href="reference/infographic.html">infographic()</a></code> function will return a <code>gt</code> table that can be exported using the <code>gtsave()</code> from <code>gt</code> package to turn the table into a pdf which is than sent the head of communication. There are two arguments that are necessary to include. The first is the academic year in the form of “<br><span class="math display"><em>B</em> − <em>C</em></span><br>…]” and then the district population of Adams and Grant County which is retrieved from the <a href="https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamscountywashington,US/PST045219">Census Fact Finder site</a>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/infographic.html">infographic</a></span><span class="op">(</span><span class="st">"B90"</span>, <span class="st">"117,716"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -207,7 +187,7 @@
 <h2 class="hasAnchor">
 <a href="#student-enrolled-in-this-quarter" class="anchor"></a>Student Enrolled In This Quarter</h2>
 <p>This function stems from a request we get asking to give a list of students who are registered in a given and determining whether they are enrolled in the subsquent quarter. More often than not it is between Fall and Winter quarter but the way in which this function is written it cann apply to any quarters. There are two arguments in this function, one being the current quarter and the other being the target quarter. Including them (yrq formate) will return a list of students who meet the criteria as seen below.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">stu_not_registred_nxt_qtr</span><span class="op">(</span><span class="st">"C012"</span>, <span class="st">"C013"</span><span class="op">)</span></code></pre></div>
 <p>Note that you do not have to provide this function any data since the date source is being connected to form within the function.</p>
 </div>

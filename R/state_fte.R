@@ -9,11 +9,19 @@
 #'
 #' @return returns a tibble.
 #' @export
+#' @examples
+#' \dontrun{
+#'
+#' dbo_class %>%
+#'   state_fte("C012")
+#'
+#' }
+#'
 #'
 
 
 state_fte <- function(data, yrq){
-  {{data}} %>%
+  data %>%
     filter(year_quarter_id == {{yrq}} & funding_source_id == 1) %>%
     select(class_id, institutional_intent_id, credit_equivalent, funding_source_id, enrollment_census_total, department) %>%
     mutate(

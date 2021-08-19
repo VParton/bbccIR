@@ -19,7 +19,12 @@
 #' @return Returns a gt tbl that can be saved as pdf or png.
 #' @export
 #'
+#' @examples
+#' \dontrun{
 #'
+#' infogrpahic("C01", 50,000)
+#'
+#' }
 infographic <- function(year, district_pop) {
 
   con <- dbConnect(odbc::odbc(), "R Data")

@@ -17,3 +17,13 @@ returns a tibble.
 \description{
 Calcualate the State FTE for a given YRQ.
 }
+\examples{
+\dontrun{
+
+dbo_class \%>\%
+  state_fte("C012")
+
+}
+
+
+}

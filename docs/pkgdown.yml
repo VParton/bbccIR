@@ -1,6 +1,8 @@
 pandoc: '2.6'
 pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2021-08-18T23:27Z
+articles:
+  bbcc-retention: bbcc-retention.html
+  getting-started: getting-started.html
+last_built: 2021-08-19T22:53Z
 

@@ -17,3 +17,10 @@ Returns a gt tbl that can be saved as pdf or png.
 \description{
 Providing numbers of information that is used for the infographic found on the Institutional Research and Planning webpage.
 }
+\examples{
+\dontrun{
+
+infogrpahic("C01", 50,000)
+
+}
+}

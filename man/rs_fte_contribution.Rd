@@ -17,3 +17,13 @@ A tibble will be returned
 \description{
 Calculate the amount of ftes that running start students contribute to the colleges overall fte count for each quarter.
 }
+\examples{
+\dontrun{
+
+student_tbl \%>\%
+  rs_fte_contribution(no_summer = TRUE)
+
+}
+
+
+}

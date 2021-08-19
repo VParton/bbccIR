@@ -4,7 +4,7 @@
 \alias{stu_not_registered_nxt_qtr}
 \title{Check student enrollment in a quarter}
 \usage{
-stu_not_registered_nxt_qtr(current_qtr, summer_qtr = NULL)
+stu_not_registered_nxt_qtr(current_qtr, summer_qtr = FALSE)
 }
 \arguments{
 \item{current_qtr}{This is the last quarter in which a student attended.}
@@ -16,4 +16,12 @@ A tibble displaying which students returned in the designated quarters.
 }
 \description{
 Running this function will allow one to find the last quarter in which a student is registered in.
+}
+\examples{
+\dontrun{
+
+stu_not_registered_nxt_qtr("B902", summer = TRUE)
+
+}
+
 }

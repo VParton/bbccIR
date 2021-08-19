@@ -10,12 +10,18 @@
 #' @import dplyr
 #' @import stringr
 #' @importFrom stringi stri_isempty
-#'
-#' @return Returns a tibble where each high school in a given year is broken out by the demographic choosen.
 #' @export
-#'
-#'
+#' @return Returns a tibble where each high school in a given year is broken out by the demographic choosen.
 
+#' @examples
+#' \dontrun{
+#'
+#'  rs_demographics(student_tbl, demographic = 'sex', high_school_name = 'Moses Lake')
+#'
+#'  student_tbl %>%
+#'    rs_demographic(demographic = 'race_ethnic_code')
+#'
+#' }
 rs_demographics <- function(data, demographic = NULL, high_school_name = '') {
 
   con <- dbConnect(odbc::odbc(), "R Data")
@@ -27,7 +33,7 @@ rs_demographics <- function(data, demographic = NULL, high_school_name = '') {
     mutate(high_school_id = str_trim(high_school_id),
            high_school_name = str_to_title(high_school_name))
 
-  rs_data <- {{data}} %>%
+  rs_data <- data %>%
     select(sid, year, dual_enroll, sex, race_ethnic_code, hi_schl) %>%
     left_join(high_school_lu, by = c("hi_schl" = "high_school_id")) %>%
     filter(dual_enroll %in% c("1")) %>%

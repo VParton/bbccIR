@@ -3,11 +3,18 @@
 #' @description Calculate the amount of ftes that running start students contribute to the colleges overall fte count for each quarter.
 #' @param data A dataframe of the student table
 #' @param no_summer Determine whether to exclude summer quarter as part of the output. By default it is set to FALSE
-#'
+#' @export
 #' @import dplyr
 #'
 #' @return A tibble will be returned
-#' @export
+
+#' @examples
+#' \dontrun{
+#'
+#' student_tbl %>%
+#'   rs_fte_contribution(no_summer = TRUE)
+#'
+#' }
 #'
 #'
 rs_fte_contribution <- function(data, no_summer = FALSE) {
