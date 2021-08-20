@@ -11,7 +11,7 @@ retention(data, cohort_yr, nxt_yr)
 
 \item{cohort_yr}{The academic year of the starting cohort}
 
-\item{nxt_yrq}{The following academic year after the cohort}
+\item{nxt_yr}{The following academic year after the cohort}
 }
 \value{
 A data frame with demographics and retention for each student in the designated

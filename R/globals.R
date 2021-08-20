@@ -71,6 +71,11 @@ utils::globalVariables(c(
   "yr",
   "yrq",
   "yrq_last_attended",
-  "yrq_target_grad"
+  "yrq_target_grad",
+  "nxt_yrq",
+  "race_ethnic_ind",
+  "age",
+  "student",
+  "race_ethn"
 
 ))

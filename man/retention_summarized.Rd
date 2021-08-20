@@ -12,7 +12,7 @@ retention_summarized(data, desired_qtr)
 \item{desired_qtr}{The quarter for which you want to get retention data for}
 }
 \value{
-
+A data frame with retention summarized
 }
 \description{
 The resulting data set is a summarized view of rention data.

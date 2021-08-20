@@ -6,7 +6,7 @@
 #'
 #' @param data A R object with the STUDENT table
 #' @param cohort_yr The academic year of the starting cohort
-#' @param nxt_yrq The following academic year after the cohort
+#' @param nxt_yr The following academic year after the cohort
 #'
 #' @family return
 #' @return A data frame with demographics and retention for each student in the designated
@@ -35,7 +35,7 @@ retention <- function(data, cohort_yr, nxt_yr) {
 
 
 
-  if(max_yrq < nxt_yrq){
+  if(max_yrq < nxt_yr){
 
     warning("Next Fall Quarter data may not be available yet")
 
@@ -76,15 +76,15 @@ retention <- function(data, cohort_yr, nxt_yr) {
 
 
   retention_data <- og_cohort %>%
-    left_join(student %>%
+    left_join(data %>%
                 filter(yrq == winter) %>%
                 select(sid, yrq) %>%
                 rename("winter" = yrq), by = "sid") %>%
-    left_join(student %>%
+    left_join(data %>%
                 filter(yrq == spring) %>%
                 select(sid, yrq) %>%
                 rename("spring" = yrq), by = c("sid")) %>%
-    left_join(student %>%
+    left_join(data %>%
                 filter(yrq == nxt_fall) %>%
                 select(sid, yrq) %>%
                 rename("nxt_fall" = yrq),  c("sid"))
@@ -105,7 +105,7 @@ retention <- function(data, cohort_yr, nxt_yr) {
 #' @param desired_qtr The quarter for which you want to get retention data for
 #' @family retention
 #'
-#' @return
+#' @return A data frame with retention summarized
 #' @export
 #'
 #' @examples
