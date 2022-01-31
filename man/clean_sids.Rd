@@ -4,10 +4,12 @@
 \alias{clean_sids}
 \title{Clean SIDs}
 \usage{
-clean_sids(data)
+clean_sids(data, check_length = FALSE)
 }
 \arguments{
 \item{data}{Any dataframe or list object contains sids}
+
+\item{check_length}{Return a column that indicates whether an sid is the correct lenght, 9 characters.}
 }
 \value{
 Returns a dataframe or list with clean sids.
@@ -19,13 +21,15 @@ Use this function to remove SIDs that may have extra spaces or hyphens in them.
 library(magrittr)
 library(dplyr)
 
-messy_sid <- c("1234", "123-4", " 1234-5")
+messy_sids <- tibble(
+  SID = c("123456789", "123-456-789", " 1234-56789", "12345"),
+  name = c("Batman", "Supergirl", "Flash", "Aquaman")
+  )
 
-clean_sids(messy_sid)
+clean_sids(messy_sids)
 
-
-tibble(messy_sid) \%>\%
-   mutate(sid = clean_sids(messy_sid))
+messy_sids \%>\%
+  clean_sids()
 
 
 }
