@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bbccIR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -162,29 +162,29 @@
    <span class='op'>)</span>
 
  <span class='va'>df</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 5</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 5</span>
 #&gt;   sid   year  hi_schl race_ethnic_code dual_enroll
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 1     B90   178     1                2          
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 2     B90   179     6                1          </div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      
+#&gt; <span style='color: #BCBCBC;'>1</span> 1     B90   178     1                2          
+#&gt; <span style='color: #BCBCBC;'>2</span> 2     B90   179     6                1          </div><div class='input'>
 
 <span class='co'># Providing no high school will return all the values</span>
  <span class='va'>df</span> <span class='op'>%&gt;%</span>
     <span class='fu'>ciHS_demographics</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 1 x 4</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
 #&gt;   year  race_ethnic_code high_school_name        n
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
 
 <span class='co'># Using either the full name or paritial name will suffice if spelled correctly.</span>
  <span class='va'>df</span> <span class='op'>%&gt;%</span>
     <span class='fu'>ciHS_demographics</span><span class='op'>(</span>high_school_name <span class='op'>=</span> <span class='st'>"Moses Lake"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 1 x 4</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
 #&gt;   year  race_ethnic_code high_school_name        n
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> B90   A/W              Moses Lake Hgh Schl     1</div><div class='input'>
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

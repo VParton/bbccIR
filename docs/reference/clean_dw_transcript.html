@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bbccIR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -159,29 +159,29 @@
         <span class='op'>)</span>
 
  <span class='va'>df</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 x 6</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 x 6</span>
 #&gt;   dept_div course_num    cr item  sect  class_size
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> NSO      100           </span><span style='color: #BB0000;'>NA</span><span> XOXO  A#P          500
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> DVS      098           </span><span style='color: #BB0000;'>NA</span><span> 1     HY            20
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> CHEM&amp;    121            5 2     OL1           25
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> ENGL     099            5 3     </span><span style='color: #BB0000;'>NA</span><span>            25
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> BDC      121            2 4     OL3           25</div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> NSO      100           <span style='color: #BB0000;'>NA</span> XOXO  A#P          500
+#&gt; <span style='color: #BCBCBC;'>2</span> DVS      098           <span style='color: #BB0000;'>NA</span> 1     HY            20
+#&gt; <span style='color: #BCBCBC;'>3</span> CHEM&amp;    121            5 2     OL1           25
+#&gt; <span style='color: #BCBCBC;'>4</span> ENGL     099            5 3     <span style='color: #BB0000;'>NA</span>            25
+#&gt; <span style='color: #BCBCBC;'>5</span> BDC      121            2 4     OL3           25</div><div class='input'>
 
 <span class='co'># Piping clean_dw_transcripts will return those courses that should</span>
 <span class='co'># be excluded from course success.</span>
 
  <span class='va'>df</span> <span class='op'>%&gt;%</span>
    <span class='fu'>clean_dw_transcript</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 6</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 6</span>
 #&gt;   dept_div course_num    cr item  sect  class_size
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> CHEM&amp;    121            5 2     OL1           25
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> ENGL     099            5 3     </span><span style='color: #BB0000;'>NA</span><span>            25
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> BDC      121            2 4     OL3           25</div><div class='input'>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> CHEM&amp;    121            5 2     OL1           25
+#&gt; <span style='color: #BCBCBC;'>2</span> ENGL     099            5 3     <span style='color: #BB0000;'>NA</span>            25
+#&gt; <span style='color: #BCBCBC;'>3</span> BDC      121            2 4     OL3           25</div><div class='input'>
 
 
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

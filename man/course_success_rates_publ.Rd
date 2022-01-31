@@ -4,9 +4,11 @@
 \alias{course_success_rates_publ}
 \title{Publication ready course success rates}
 \usage{
-course_success_rates_publ(academic_year)
+course_success_rates_publ(data, academic_year)
 }
 \arguments{
+\item{data}{Complete transcript table from data warehouse}
+
 \item{academic_year}{Designate academic year using codes.}
 }
 \value{
@@ -18,9 +20,15 @@ Publication ready course success rates
 \examples{
 \dontrun{
 
-course_success_rates_publ("C01")
+course_success_rates_publ(transcript_tbl, "C01")
 
-course_success_rates_publ("B56")
+
+tbl(con, 'Transcripts') \%>\%
+ filter(YEAR == "B90") \%>\%
+ collect() \%>\%
+ clean_names() \%>\%
+ clean_dw_transcript() \%>\%
+ course_success_rates_publ("B90")
 
 }
 

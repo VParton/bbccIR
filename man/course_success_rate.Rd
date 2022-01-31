@@ -7,7 +7,7 @@
 course_success_rate(data, rate = "raw", graded = FALSE)
 }
 \arguments{
-\item{data}{Complete transcrpt table from data warehouse}
+\item{data}{Complete transcript table from data warehouse}
 
 \item{rate}{Determine the output type. Default is the raw output but can be changed to 'percent' to get
 pass rate as a percentage}

@@ -3,10 +3,14 @@
 #' Use this function to remove SIDs that may have extra spaces or hyphens in them.
 #'
 #' @param data Any dataframe or list object contains sids
+#' @param check_length Return a column that indicates whether an sid is the correct lenght, 9 characters.
+#'
 #' @import dplyr
 #' @importFrom magrittr "%>%"
-#' @importFrom stringr str_remove_all
 #' @importFrom tibble tibble
+#' @importFrom stringr str_remove_all
+#' @importFrom stringr str_trim
+#' @importFrom janitor clean_names
 #'
 #' @return Returns a dataframe or list with clean sids.
 #' @export
@@ -15,17 +19,35 @@
 #' library(magrittr)
 #' library(dplyr)
 #'
-#' messy_sid <- c("1234", "123-4", " 1234-5")
+#' messy_sids <- tibble(
+#'   SID = c("123456789", "123-456-789", " 1234-56789", "12345"),
+#'   name = c("Batman", "Supergirl", "Flash", "Aquaman")
+#'   )
 #'
-#' clean_sids(messy_sid)
+#' clean_sids(messy_sids)
 #'
+#' messy_sids %>%
+#'   clean_sids()
+#'
+#'
+clean_sids <- function(data, check_length = FALSE) {
+  message("Column names were set to snake case")
 
-#'
-#' tibble(messy_sid) %>%
-#'    mutate(sid = clean_sids(messy_sid))
-#'
-#'
-clean_sids <- function(data) {
+  output <- data %>%
+    janitor::clean_names() %>%
+    mutate(clean_sid = stringr::str_remove_all(stringr::str_trim(sid), "[-|\\s]"))
 
-  str_remove_all(str_trim(data), "[-|\\s]")
+
+  if(check_length == TRUE) {
+
+    error_sid <- output %>%
+      mutate(pot_sid_error = if_else(!str_length(clean_sid) != 9, "no", 'yes'))
+
+    return(error_sid)
+
+  }
+
+
+  return(output)
+
 }

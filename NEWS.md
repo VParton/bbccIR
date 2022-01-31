@@ -6,7 +6,9 @@ output: html_document
 * New function:
   * `stu_qtr_enrollment`
 * Edits to function:
-  * `clean_sids()` - fixed issue that created a new column instead of editing current field value
+  * `clean_sids()` - Add functionality to check length of sid
+  * `clean_dw_transcript()` - Fixed issue pertaining to there being no SQL varient for `str_detect()`
+  * `course_success_rates_publ()` - Fixed issue with year lookup table
 * Edits to README, DESCRIPITON, and documention
 
 # `bbccIR 0.1.4.9000`

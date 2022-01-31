@@ -1,5 +1,5 @@
 
-# `{bbccIR}` 0.1.4.9000
+# `{bbccIR}` 0.1.5.9000
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
@@ -77,21 +77,6 @@ output. By default, the courses success rates are reported in their raw
 format containing the number of withdrawals, failures, fails and total
 students.
 
-## `course_success_rate_publ`
-
-Building off the previous function, `course_success_rate`, the
-`course_success_rate_publ` function will output a date frame that is
-ready for publication either for the portal or to be distributed to
-various stakeholders. All that is required is for the user to designate
-which academic year they would like to look at. Additionally, the user
-can use the `map` functions from the `purrr` package to retrieve the
-courses success rates for all academic years, of which are available.
-Running the following line of code will output the data frame.
-
-``` r
-course_success_rates_publ("B90")
-```
-
 # Student Table
 
 The following set of functions are executed using the Student table
@@ -138,18 +123,6 @@ student_tbl %>%
   filter(str_detect(yrq, "B[6-9][0-9][2-4]"))
 ```
 
-#### College In The High School
-
-The `ciHS_demographics()` function is the same as the
-`rs_demographics()` function except that the former focuses on College
-In The High School students.
-
-``` r
-student_tbl %>% 
-  ciHS_demographics(high_school_name = "Eph") %>%
-  filter(year >= "B23")
-```
-
 ## Yearly Infographic
 
 Every year Institutional Resesrach is tasked with updating the
@@ -167,22 +140,9 @@ site](https://www.census.gov/quickfacts/fact/table/grantcountywashington,adamsco
 infographic("B90", "117,716")
 ```
 
-# Other
+# Filing Issues
 
-## Student Enrolled In This Quarter
-
-This function stems from a request we get asking to give a list of
-students who are registered in a given and determining whether they are
-enrolled in the subsquent quarter. More often than not it is between
-Fall and Winter quarter but the way in which this function is written it
-cann apply to any quarters. There are two arguments in this function,
-one being the current quarter and the other being the target quarter.
-Including them (yrq formate) will return a list of students who meet the
-criteria as seen below.
-
-``` r
-stu_not_registred_nxt_qtr("C012", "C013")
-```
-
-Note that you do not have to provide this function any data since the
-date source is being connected to form within the function.
+If there are any issues or area of growth in this package please feel
+free to file a [GitHub
+Issue](https://github.com/Edgar-Zamora/bbccIR/issues) or contact
+Institutional Reserach and Planning

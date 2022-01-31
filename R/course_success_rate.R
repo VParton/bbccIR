@@ -1,7 +1,7 @@
 #' Calculate course success rates
 #'
 #'
-#' @param data Complete transcrpt table from data warehouse
+#' @param data Complete transcript table from data warehouse
 #' @param rate Determine the output type. Default is the raw output but can be changed to 'percent' to get
 #'             pass rate as a percentage
 #' @param graded Determine whether to view average gpa by individual course. By default graded is set to FALSE but can be
@@ -83,6 +83,8 @@ course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 
 #' Publication ready course success rates
 #'
+#'
+#' @param data Complete transcript table from data warehouse
 #' @param academic_year Designate academic year using codes.
 #'
 #' @import dplyr
@@ -95,21 +97,21 @@ course_success_rate <- function(data, rate = 'raw', graded = FALSE) {
 #' @examples
 #' \dontrun{
 #'
-#' course_success_rates_publ("C01")
+#' course_success_rates_publ(transcript_tbl, "C01")
 #'
-#' course_success_rates_publ("B56")
+#'
+#' tbl(con, 'Transcripts') %>%
+#'  filter(YEAR == "B90") %>%
+#'  collect() %>%
+#'  clean_names() %>%
+#'  clean_dw_transcript() %>%
+#'  course_success_rates_publ("B90")
 #'
 #' }
 #'
-course_success_rates_publ <- function(academic_year) {
+course_success_rates_publ <- function(data, academic_year) {
 
   con <- dbConnect(odbc(), "R Data")
-
-  transcript <- tbl(con, "TRANSCRIPTS") %>%
-    collect() %>%
-    clean_names() %>%
-    filter(year == {{academic_year}}) %>%
-    course_success_rate()
 
 
   year_lu <- tbl(con, "YRQ LU") %>%
@@ -119,20 +121,32 @@ course_success_rates_publ <- function(academic_year) {
 
 
 
-  # Each year has the potential for new courses.
-  year <- {academic_year}
-
+  # Course and Division lookup
   tbl_name <- glue("Course and Division LU {year}")
-
 
   dept_dvision_lu <- tbl(con, tbl_name) %>%
     collect() %>%
-    clean_names() %>%
-    select(-year)
+    clean_names()
+
+  ## Sometimes year is not included in the table. If there is no year column
+  ## the function will stop and an error provided.
+  if (!"year" %in% colnames(dept_dvision_lu)) {
+
+    stop("There is no Year column available! Please add.")
+
+  } else {
+
+   dept_dvision_lu <- dept_dvision_lu %>%
+      mutate(across(c(dept_div, course_num), str_trim)) %>%
+      select(-year)
+
+  }
 
 
 
-  course_success_pub <- transcript %>%
+
+  course_success_pub <- data %>%
+    course_success_rate() %>%
     select(-item) %>%
     group_by(year, dept_div, course_num, course_title) %>%
     summarise(
