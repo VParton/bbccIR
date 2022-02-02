@@ -6,8 +6,7 @@ output: html_document
 * New function:
   * `stu_qtr_enrollment`
 * Edits to function:
-  * `clean_sids()` - Add functionality to check length of sid
-  * `clean_dw_transcript()` - Fixed issue pertaining to there being no SQL varient for `str_detect()`
+  * `clean_ids()` - Rename and add functionality to check length and if only digits present. 
   * `course_success_rates_publ()` - Fixed issue with year lookup table
 * Edits to README, DESCRIPITON, and documention
 

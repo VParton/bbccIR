@@ -4,3 +4,4 @@
 .Ruserdata
 .Rmd
 inst/doc
+R/globals.R

@@ -76,6 +76,7 @@ utils::globalVariables(c(
   "race_ethnic_ind",
   "age",
   "student",
-  "race_ethn"
+  "race_ethn",
+  "emplid"
 
 ))
